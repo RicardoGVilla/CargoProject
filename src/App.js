@@ -6,6 +6,7 @@ import Topbar from "./scenes/global/Topbar";
 import Dashboard from "./scenes/dashboard";
 import Sidebar from "./scenes/global/Sidebar";
 import Contacts from "./scenes/contacts/index";
+import Calendar from "./scenes/calendar";
 // import Contacts from "./scenes/global/contacts";
 // import Calendar from "./scenes/global/calendar";
 // import Tasks from "./scenes/global/tasks";
@@ -29,8 +30,8 @@ function App() {
           <Routes>
             <Route path ="/" element={<Dashboard />} />
             <Route path ="/contacts" element={<Contacts />} />
-            {/* 
             <Route path ="/calendar" element={<Calendar />} />
+            {/* 
             <Route path ="/tasks" element={<Tasks />} />
             <Route path ="/form" element={<Form />} />
             <Route path ="/data" element={<Data />} /> */}
