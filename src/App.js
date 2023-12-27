@@ -7,8 +7,9 @@ import Dashboard from "./scenes/dashboard";
 import Sidebar from "./scenes/global/Sidebar";
 import Contacts from "./scenes/contacts/index";
 import Calendar from "./scenes/calendar";
-import Tasks from "./scenes/tasks";
-import "../src/style.css";;
+import "../src/style.css";
+import KanbanBoard from "./scenes/tasks";
+;
 // import Contacts from "./scenes/global/contacts";
 // import Calendar from "./scenes/global/calendar";
 // import Tasks from "./scenes/global/tasks";
@@ -33,7 +34,7 @@ function App() {
             <Route path ="/" element={<Dashboard />} />
             <Route path ="/contacts" element={<Contacts />} />
             <Route path ="/calendar" element={<Calendar />} />
-            <Route path ="/tasks" element={<Tasks />} />
+            <Route path ="/tasks" element={<KanbanBoard />} />
             {/* 
             
             <Route path ="/form" element={<Form />} />

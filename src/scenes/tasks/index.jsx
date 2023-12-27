@@ -1,43 +1,31 @@
-import { tokens } from "../../theme";
+import React, { useState } from "react";
+import { DragDropContext } from "react-beautiful-dnd";
 import { useTheme } from "@mui/material";
-import { Box } from "@mui/material";
-import Header from "../../components/Header";
-import { KanbanComponent, ColumnsDirective, ColumnDirective } from '@syncfusion/ej2-react-kanban';
+import { tokens } from "../../theme";
+import Column from "../../components/Column";
 
-import { kanbanData, kanbanGrid } from "../../data/data/dummy";
+const KanbanBoard = () => {
+    const theme = useTheme();
+    const colors = tokens(theme.palette.mode);
 
+    // Define your state variables here
+    const [completed, setCompleted] = useState([]);
+    const [incomplete, setIncomplete] = useState([]);
 
-
-const Tasks = () => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-
-return(
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
-    <Box m="20px">
-      <Header
-        title="KANBAN"
-      />
-      <Box
-        m="20px 0 0 0"
-        height="100%"
-        sx={{
-          "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
-            color: `${colors.grey[100]} !important`,
-          },
+    return (
+        <DragDropContext>
+        <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexDirection: "row",
         }}
-      >
-</Box>
-</Box>
-  <KanbanComponent>
-    <ColumnsDirective>
-        {kanbanGrid.map((item,index) => 
-        <ColumnDirective key={index} {...item} /> )}    
-    </ColumnsDirective>
-  </KanbanComponent>
-  </div>
-);
-  
+      ><Column title={"To Do"} tasks={incomplete} id={"1"} />
+        </div>
+        </DragDropContext>
+
+    );
 }
 
-export default Tasks;
+export default KanbanBoard;
