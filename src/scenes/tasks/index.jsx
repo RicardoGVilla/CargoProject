@@ -1,69 +1,142 @@
-import React, { useState, useEffect } from "react";
-import { DragDropContext } from "react-beautiful-dnd";
-import Column from "../../components/Column";
+import React, { useState } from 'react';
+import { DragDropContext, Draggable, Droppable } from '@hello-pangea/dnd';
 
-export default function KanbanBoard() {
-  const [completed, setCompleted] = useState([]);
-  const [incomplete, setIncomplete] = useState([]);
+// Define your initial items
+const itemsFromBackend = [
+  { id: '1', content: 'First task' },
+  { id: '2', content: 'Second task' },
+  { id: '3', content: 'Third task' },
+  { id: '4', content: 'Fourth task' },
+  { id: '5', content: 'Fifth task' },
+];
 
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then((response) => response.json())
-      .then((json) => {
-        setCompleted(json.filter((task) => task.completed));
-        setIncomplete(json.filter((task) => !task.completed));
+// Initial data for your Kanban board
+const initialColumns = {
+  requested: {
+    name: 'Requested',
+    items: itemsFromBackend,
+  },
+  todo: {
+    name: 'To do',
+    items: [],
+  },
+  inProgress: {
+    name: 'In Progress',
+    items: [],
+  },
+  done: {
+    name: 'Done',
+    items: [],
+  },
+};
+
+const KanbanBoard = () => {
+  const [columns, setColumns] = useState(initialColumns);
+
+  const onDragEnd = (result) => {
+    if (!result.destination) return;
+    const { source, destination } = result;
+
+    if (source.droppableId !== destination.droppableId) {
+      const sourceColumn = columns[source.droppableId];
+      const destColumn = columns[destination.droppableId];
+      const sourceItems = [...sourceColumn.items];
+      const destItems = [...destColumn.items];
+      const [removed] = sourceItems.splice(source.index, 1);
+      destItems.splice(destination.index, 0, removed);
+      setColumns({
+        ...columns,
+        [source.droppableId]: {
+          ...sourceColumn,
+          items: sourceItems,
+        },
+        [destination.droppableId]: {
+          ...destColumn,
+          items: destItems,
+        },
       });
-  }, []);
-
-  const handleDragEnd = (result) => {
-    const { destination, source, draggableId } = result;
-
-    if (source.droppableId == destination.droppableId) return;
-
-    //REMOVE FROM SOURCE ARRAY
-
-    if (source.droppableId == 2) {
-      setCompleted(removeItemById(draggableId, completed));
     } else {
-      setIncomplete(removeItemById(draggableId, incomplete));
-    }
-
-    // GET ITEM
-
-    const task = findItemById(draggableId, [...incomplete, ...completed]);
-
-    //ADD ITEM
-    if (destination.droppableId == 2) {
-      setCompleted([{ ...task, completed: !task.completed }, ...completed]);
-    } else {
-      setIncomplete([{ ...task, completed: !task.completed }, ...incomplete]);
+      const column = columns[source.droppableId];
+      const copiedItems = [...column.items];
+      const [removed] = copiedItems.splice(source.index, 1);
+      copiedItems.splice(destination.index, 0, removed);
+      setColumns({
+        ...columns,
+        [source.droppableId]: {
+          ...column,
+          items: copiedItems,
+        },
+      });
     }
   };
 
-  function findItemById(id, array) {
-    return array.find((item) => item.id == id);
-  }
-
-  function removeItemById(id, array) {
-    return array.filter((item) => item.id != id);
-  }
-
   return (
-    <DragDropContext onDragEnd={handleDragEnd}>
-      <h2 style={{ textAlign: "center" }}>PROGRESS BOARD</h2>
-
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexDirection: "row",
-        }}
-      >
-        <Column title={"TO DO"} tasks={incomplete} id={"1"} />
-        <Column title={"DONE"} tasks={completed} id={"2"} />
-        <Column title={"BACKLOG"} tasks={[]} id={"3"} />
-      </div>
-    </DragDropContext>
+    <div style={{ display: 'flex', justifyContent: 'center', height: '100%' }}>
+      <DragDropContext onDragEnd={onDragEnd}>
+        {Object.entries(columns).map(([columnId, column]) => {
+          return (
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                margin: '0 10px',
+              }}
+              key={columnId}
+            >
+              <h2>{column.name}</h2>
+              <div style={{ margin: 8 }}>
+                <Droppable droppableId={columnId} key={columnId}>
+                  {(provided, snapshot) => {
+                    return (
+                      <div
+                        {...provided.droppableProps}
+                        ref={provided.innerRef}
+                        style={{
+                          background: snapshot.isDraggingOver ? 'lightblue' : 'lightgrey',
+                          padding: 4,
+                          width: 250,
+                          minHeight: 500,
+                        }}
+                      >
+                        {column.items.map((item, index) => {
+                          return (
+                            <Draggable key={item.id} draggableId={item.id} index={index}>
+                              {(provided, snapshot) => {
+                                return (
+                                  <div
+                                    ref={provided.innerRef}
+                                    {...provided.draggableProps}
+                                    {...provided.dragHandleProps}
+                                    style={{
+                                      userSelect: 'none',
+                                      padding: 16,
+                                      margin: '0 0 8px 0',
+                                      minHeight: '50px',
+                                      backgroundColor: snapshot.isDragging ? '#263B4A' : '#456C86',
+                                      color: 'white',
+                                      ...provided.draggableProps.style,
+                                    }}
+                                  >
+                                    {item.content}
+                                  </div>
+                                );
+                              }}
+                            </Draggable>
+                          );
+                        })}
+                        {provided.placeholder}
+                      </div>
+                    );
+                  }}
+                </Droppable>
+              </div>
+            </div>
+          );
+        })}
+      </DragDropContext>
+    </div>
   );
-}
+};
+
+export default KanbanBoard;
