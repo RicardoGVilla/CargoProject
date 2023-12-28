@@ -74,4 +74,4 @@ export default function Task({ task, index }) {
       )}
     </Draggable>
   );
-} 
+}
