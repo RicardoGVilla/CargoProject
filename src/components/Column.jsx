@@ -1,59 +1,43 @@
-// import React from "react";
-// import styled from "styled-components";
-// import Task from "./Task";
-// import "./scroll.css";
-// import { Droppable } from "react-beautiful-dnd";
+import React from 'react';
+import { Droppable } from '@hello-pangea/dnd';
+import Task from './Task'; // Assuming Task is in a separate file
+import { Box, Typography, useTheme } from "@mui/material";
 
-// const Container = styled.div`
-//   background-color: #f4f5f7;
-//   border-radius: 2.5px;
-//   width: 300px;
-//   height: 475px;
-//   overflow-y: scroll;
-//   -ms-overflow-style: none;
-//   scrollbar-width: none;
-//   border: 1px solid gray;
-// `;
+const Column = ({ columnId, column, setColumns }) => {
+  const theme = useTheme();
+  const colors = theme.palette; 
 
-// const Title = styled.h3`
-//   padding: 8px;
-//   background-color: pink;
-//   text-align: center;
-// `;
+  return (
+    <Box sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      margin: '0 10px',
+    }}>
+      <Typography variant="h2">{column.name}</Typography>
+      <Box sx={{ margin: 1 }}>
+        <Droppable droppableId={columnId}>
+          {(provided, snapshot) => (
+            <Box
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+              sx={{
+                background: snapshot.isDraggingOver ? 'lightblue' : 'lightgrey', 
+                padding: 1,
+                width: 250,
+                minHeight: 500,
+              }}
+            >
+              {column.items.map((item, index) => (
+                <Task key={item.id} item={item} index={index} />
+              ))}
+              {provided.placeholder}
+            </Box>
+          )}
+        </Droppable>
+      </Box>
+    </Box>
+  );
+};
 
-// const TaskList = styled.div`
-//   padding: 3px;
-//   transistion: background-color 0.2s ease;
-//   background-color: #f4f5f7;
-//   flex-grow: 1;
-//   min-height: 100px;
-// `;
-
-// export default function Column({ title, tasks, id }) {
-//   return (
-//     <Container className="column">
-//       <Title
-//         style={{
-//           backgroundColor: "lightblue",
-//           position: "stick",
-//         }}
-//       >
-//         {title}
-//       </Title>
-//       <Droppable droppableId={id}>
-//         {(provided, snapshot) => (
-//           <TaskList
-//             ref={provided.innerRef}
-//             {...provided.droppableProps}
-//             isDraggingOver={snapshot.isDraggingOver}
-//           >
-//             {tasks.map((task, index) => (
-//               <Task key={index} index={index} task={task} />
-//             ))}
-//             {provided.placeholder}
-//           </TaskList>
-//         )}
-//       </Droppable>
-//     </Container>
-//   );
-// }
+export default Column;
