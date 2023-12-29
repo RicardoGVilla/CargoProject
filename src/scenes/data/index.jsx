@@ -1,117 +1,73 @@
 import React from 'react';
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Header from '../../components/Header';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
-
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
 const containerStyles = {
-//   backgroundColor: 'blue',
   padding: '10px',
-//   border: '1px solid black',
   border: 'none',
   height: '50%',
   marginBottom: '20px',
 };
 
 const graphContainer = {
-//   backgroundColor: 'blue',
   padding: '10px',
-//   border: '1px solid black',
   border: 'none',
   height: '80vh',
   width: '70%',
-  margin:'10px',
+  margin: '10px',
 };
 
 export default function Data() {
-    const data = [
-        {
-          name: 'Page A',
-          uv: 4000,
-          pv: 2400,
-          amt: 2400,
-        },
-        {
-          name: 'Page B',
-          uv: 3000,
-          pv: 1398,
-          amt: 2210,
-        },
-        {
-          name: 'Page C',
-          uv: 2000,
-          pv: 9800,
-          amt: 2290,
-        },
-        {
-          name: 'Page D',
-          uv: 2780,
-          pv: 3908,
-          amt: 2000,
-        },
-        {
-          name: 'Page E',
-          uv: 1890,
-          pv: 4800,
-          amt: 2181,
-        },
-        {
-          name: 'Page F',
-          uv: 2390,
-          pv: 3800,
-          amt: 2500,
-        },
-        {
-          name: 'Page G',
-          uv: 3490,
-          pv: 4300,
-          amt: 2100,
-        },
-      ];
+  const monthlyData = [
+    { month: 'January', expenses: 2000, revenue: 4000 },
+    { month: 'February', expenses: 2500, revenue: 3500 },
+    { month: 'March', expenses: 1800, revenue: 4200 },
+    { month: 'April', expenses: 2200, revenue: 3800 },
+    { month: 'May', expenses: 1900, revenue: 4500 },
+    { month: 'June', expenses: 2100, revenue: 4200 },
+    { month: 'July', expenses: 2300, revenue: 4300 },
+    { month: 'August', expenses: 2400, revenue: 4800 },
+    { month: 'September', expenses: 2000, revenue: 4000 },
+    { month: 'October', expenses: 2500, revenue: 3500 },
+    { month: 'November', expenses: 1800, revenue: 4200 },
+    { month: 'December', expenses: 2200, revenue: 3800 },
+  ];
 
+  const columnsFirstGrid: GridColDef[] = [
+    { field: 'orderNumber', headerName: 'Order Number', width: 120 },
+    { field: 'product', headerName: 'Product', width: 150 },
+    { field: 'purchasePrice', headerName: 'Purchase Price', width: 130 },
+    { field: 'incoterm', headerName: 'Incoterm', width: 130 },
+  ];
 
-      const columns: GridColDef[] = [
-        { field: 'id', headerName: 'Order', width: 90 ,
-        flex: 1,},
-        {
-          field: 'firstName',
-          headerName: 'Product',
-          flex: 1,
-          editable: true,
-        },
-        {
-          field: 'lastName',
-          headerName: 'Status',
-          flex: 1,
-          editable: true,
-        },
-        {
-          field: 'age',
-          headerName: 'Price',
-          type: 'number',
-          flex: 1, 
-          editable: true,
-        },
-      ];
-      
-      
-      const rows = [
-        { id: 1, lastName: 'Snow', firstName: 'Jon', age: 14 },
-        { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 31 },
-        { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 31 },
-        { id: 4, lastName: 'Stark', firstName: 'Arya', age: 11 },
-        { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-        { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-        { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-        { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-        { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-      ];
+  const rowsFirstGrid = [
+    { id: 1, orderNumber: 'ORD001', product: 'Avocado', purchasePrice: 1.99, incoterm: 'FOB' },
+    { id: 2, orderNumber: 'ORD002', product: 'Pineapple', purchasePrice: 2.49, incoterm: 'CIF' },
+    { id: 3, orderNumber: 'ORD003', product: 'Bananas', purchasePrice: 0.99, incoterm: 'DDP' },
+    { id: 4, orderNumber: 'ORD004', product: 'Chocolate', purchasePrice: 3.79, incoterm: 'FOB' },
+    { id: 5, orderNumber: 'ORD005', product: 'Rice', purchasePrice: 1.29, incoterm: 'CIF' },
+  ];
+
+  const columnsSecondGrid: GridColDef[] = [
+    { field: 'orderNumber', headerName: 'Order Number', width: 120 },
+    { field: 'product', headerName: 'Product', width: 150 },
+    { field: 'profitPerContainer', headerName: 'Profit', width: 130 },
+    { field: 'dateOfPurchase', headerName: 'Date of Purchase', width: 130 },
+  ];
+
+  const rowsSecondGrid = [
+    { id: 6, orderNumber: 'ORD006', product: 'Coffee Beans', profitPerContainer: 500, dateOfPurchase: '2023-01-10' },
+    { id: 7, orderNumber: 'ORD007', product: 'Olive Oil', profitPerContainer: 800, dateOfPurchase: '2023-02-20' },
+    { id: 8, orderNumber: 'ORD008', product: 'Spices', profitPerContainer: 300, dateOfPurchase: '2023-03-15' },
+    { id: 9, orderNumber: 'ORD009', product: 'Canned Tuna', profitPerContainer: 600, dateOfPurchase: '2023-04-05' },
+    { id: 10, orderNumber: 'ORD010', product: 'Cheese', profitPerContainer: 700, dateOfPurchase: '2023-05-12' },
+  ];
 
   return (
     <Box
       sx={{
-        // bgcolor: "red",
         width: '100%',
         height: '100%',
         padding: '10px',
@@ -129,69 +85,48 @@ export default function Data() {
         }}
       >
         <div style={graphContainer}>
-        <ResponsiveContainer width="100%" height="100%">
-        <LineChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-        </LineChart>
-      </ResponsiveContainer>
+          <Typography variant="h6" align="center">Monthly Expenses vs. Revenue</Typography>
+          <ResponsiveContainer width="100%" height="80%">
+            <LineChart
+              data={monthlyData}
+              margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="month" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Line type="monotone" dataKey="expenses" name="Expenses" stroke="#FF5733" />
+              <Line type="monotone" dataKey="revenue" name="Revenue" stroke="#33FF57" />
+            </LineChart>
+          </ResponsiveContainer>
         </div>
         <Box
           sx={{
-            // bgcolor: "green",
             width: '30%',
             display: 'flex',
             flexDirection: 'column',
           }}
         >
           <div style={containerStyles}>
-          <Box sx={{ height: 400, width: '100%' }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pageSize: 4,
-            },
-          },
-        }}
-        pageSizeOptions={[4]}
-        disableRowSelectionOnClick
-      />
-    </Box>
+            <Box sx={{ height: 400, width: '100%' }}>
+              <DataGrid
+                rows={rowsFirstGrid}
+                columns={columnsFirstGrid}
+                pageSize={5}
+                rowsPerPageOptions={[5]}
+              />
+            </Box>
           </div>
           <div style={containerStyles}>
-          <Box sx={{ height: 400, width: '100%' }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pageSize: 4,
-            },
-          },
-        }}
-        pageSizeOptions={[4]}
-        disableRowSelectionOnClick
-      />
-    </Box>
+            <Box sx={{ height: 400, width: '100%' }}>
+              <DataGrid
+                rows={rowsSecondGrid}
+                columns={columnsSecondGrid}
+                pageSize={5}
+                rowsPerPageOptions={[5]}
+              />
+            </Box>
           </div>
         </Box>
       </Box>
