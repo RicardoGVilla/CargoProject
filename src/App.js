@@ -10,6 +10,7 @@ import Calendar from "./scenes/calendar";
 import "../src/style.css";
 import KanbanBoard from "./scenes/tasks";
 import Data from "./scenes/data";
+import Form from "./components/Form";
 
 // import Contacts from "./scenes/global/contacts";
 // import Calendar from "./scenes/global/calendar";
@@ -36,11 +37,8 @@ function App() {
               <Route path="/contacts" element={<Contacts />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/tasks" element={<KanbanBoard />} />
-              <Route path="/data" element={<Data />} />
-              {/* 
-            
-            <Route path ="/form" element={<Form />} />
-             */}
+              <Route path="/data" element={<Data />} />           
+            <Route path ="/form" element={<Form />} />        
             </Routes>
           </main>
         </div>
