@@ -9,7 +9,8 @@ import Contacts from "./scenes/contacts/index";
 import Calendar from "./scenes/calendar";
 import "../src/style.css";
 import KanbanBoard from "./scenes/tasks";
-;
+import Data from "./scenes/data";
+
 // import Contacts from "./scenes/global/contacts";
 // import Calendar from "./scenes/global/calendar";
 // import Tasks from "./scenes/global/tasks";
@@ -23,28 +24,29 @@ function App() {
   const [isSidebar, setIsSidebar] = useState(true);
 
   return (
-  <colorModeContext.Provider value={colorMode}>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <div className="app">
-      <Sidebar isSidebar={isSidebar} />
-        <main className="content">
-        <Topbar setIsSidebar={setIsSidebar} />
-          <Routes>
-            <Route path ="/" element={<Dashboard />} />
-            <Route path ="/contacts" element={<Contacts />} />
-            <Route path ="/calendar" element={<Calendar />} />
-            <Route path ="/tasks" element={<KanbanBoard />} />
-            {/* 
+    <colorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="app">
+          <Sidebar isSidebar={isSidebar} />
+          <main className="content">
+            <Topbar setIsSidebar={setIsSidebar} />
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/contacts" element={<Contacts />} />
+              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/tasks" element={<KanbanBoard />} />
+              <Route path="/data" element={<Data />} />
+              {/* 
             
             <Route path ="/form" element={<Form />} />
-            <Route path ="/data" element={<Data />} /> */}
-          </Routes>
-        </main>
-      </div>
-    </ThemeProvider>
-  </colorModeContext.Provider>
-  )
+             */}
+            </Routes>
+          </main>
+        </div>
+      </ThemeProvider>
+    </colorModeContext.Provider>
+  );
 }
 
 export default App;

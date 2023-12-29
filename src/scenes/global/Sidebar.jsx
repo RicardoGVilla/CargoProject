@@ -139,7 +139,7 @@ const Sidebar = () => {
             />
             <Item
               title="Analytics"
-              to="/pie"
+              to="/data"
               icon={<TimelineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
