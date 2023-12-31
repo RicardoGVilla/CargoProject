@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
@@ -15,17 +15,10 @@ const Contacts = () => {
       field: "name",
       headerName: "Name",
       flex: 1,
-      cellClassName: "name-column--cell",
     },
     {
-        field: "company",
-        headerName: "Company",
-        flex: 1,
-        cellClassName: "name-column--cell",
-      },
-    {
-      field: "phone",
-      headerName: "Phone Number",
+      field: "company",
+      headerName: "Company",
       flex: 1,
     },
     {
@@ -34,17 +27,25 @@ const Contacts = () => {
       flex: 1,
     },
     {
+      field: "phone",
+      headerName: "Phone Number",
+      flex: 1,
+    },
+    {
       field: "country",
       headerName: "Country",
+      flex: 1,
+    },
+    {
+      field: "role", // Add "role" field to the columns
+      headerName: "Role", // Header for the "role" field
       flex: 1,
     },
   ];
 
   return (
     <Box m="20px">
-      <Header
-        title="CONTACTS"
-      />
+      <Header title="CONTACTS" />
       <Box
         m="20px 0 0 0"
         height="100%"

@@ -19,6 +19,7 @@ export const mockDataContacts = [
     email: "jonsnow@gmail.com",
     phone: "(665)121-5454",
     country: "Argentina",
+    role: "Logistics Manager",
   },
   {
     id: 2,
@@ -27,6 +28,7 @@ export const mockDataContacts = [
     email: "aryastark@gmail.com",
     phone: "(665)122-5656",
     country: "Canada",
+    role: "Procurement Specialist",
   },
   {
     id: 3,
@@ -35,6 +37,7 @@ export const mockDataContacts = [
     email: "sansastark@gmail.com",
     phone: "(665)123-5757",
     country: "USA",
+    role: "Warehouse Supervisor",
   },
   {
     id: 4,
@@ -43,6 +46,7 @@ export const mockDataContacts = [
     email: "branstark@gmail.com",
     phone: "(665)124-5858",
     country: "Mexico",
+    role: "Supply Chain Analyst",
   },
   {
     id: 5,
@@ -51,6 +55,7 @@ export const mockDataContacts = [
     email: "tyrionlannister@gmail.com",
     phone: "(665)125-5959",
     country: "Ireland",
+    role: "Shipping Coordinator",
   },
   {
     id: 6,
@@ -59,6 +64,7 @@ export const mockDataContacts = [
     email: "daenerystargaryen@gmail.com",
     phone: "(665)126-6060",
     country: "United Kingdom",
+    role: "Customs Broker",
   },
   {
     id: 7,
@@ -67,6 +73,7 @@ export const mockDataContacts = [
     email: "cerseilannister@gmail.com",
     phone: "(665)127-6161",
     country: "France",
+    role: "Inventory Manager",
   },
   {
     id: 8,
@@ -75,6 +82,7 @@ export const mockDataContacts = [
     email: "jaimelannister@gmail.com",
     phone: "(665)128-6262",
     country: "Spain",
+    role: "Quality Control Inspector",
   },
   {
     id: 9,
@@ -83,6 +91,7 @@ export const mockDataContacts = [
     email: "petyrbaelish@gmail.com",
     phone: "(665)129-6363",
     country: "Portugal",
+    role: "Vendor Relationship Manager",
   },
   {
     id: 10,
@@ -91,6 +100,7 @@ export const mockDataContacts = [
     email: "davosseaworth@gmail.com",
     phone: "(665)130-6464",
     country: "Norway",
+    role: "Demand Planner",
   },
   {
     id: 11,
@@ -99,6 +109,7 @@ export const mockDataContacts = [
     email: "brienneoftarth@gmail.com",
     phone: "(665)131-6565",
     country: "Germany",
+    role: "Logistics Manager",
   },
   {
     id: 12,
@@ -107,6 +118,7 @@ export const mockDataContacts = [
     email: "samwelltarly@gmail.com",
     phone: "(665)132-6666",
     country: "Netherlands",
+    role: "Quality Control Inspector",
   },
   {
     id: 13,
@@ -115,6 +127,7 @@ export const mockDataContacts = [
     email: "tormundgiantsbane@gmail.com",
     phone: "(665)133-6767",
     country: "Denmark",
+    role: "Logistics Manager",
   },
   {
     id: 14,
@@ -123,6 +136,7 @@ export const mockDataContacts = [
     email: "melisandre@gmail.com",
     phone: "(665)134-6868",
     country: "Italy",
+    role: "Supply Chain Analyst",
   },
   {
     id: 15,
@@ -131,7 +145,9 @@ export const mockDataContacts = [
     email: "eddardstark@gmail.com",
     phone: "(665)135-6969",
     country: "Belgium",
-  }
+    role: "Logistics Manager",
+  },
 ];
+
 
 
