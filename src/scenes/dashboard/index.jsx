@@ -37,7 +37,9 @@ export default function DataGridDemo() {
     <Box sx={{ height: '100%', width: '100%', padding: '10px' }}>
       <Header
         title="Dashboard"
+        subtitle="Shipment Status"
       />
+      <div style={{ padding: '10px' }}>
       <DataGrid
         rows={mockDataOrders}
         columns={columns}
@@ -50,6 +52,7 @@ export default function DataGridDemo() {
         rowsPerPageOptions={[5]}
         disableRowSelectionOnClick
       />
+      </div>     
     </Box>
   );
 }
