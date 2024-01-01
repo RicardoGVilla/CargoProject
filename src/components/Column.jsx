@@ -13,8 +13,9 @@ const Column = ({ columnId, column, setColumns }) => {
       flexDirection: 'column',
       alignItems: 'center',
       margin: '0 10px',
+      mt: "10px",
     }}>
-      <Typography variant="h2">{column.name}</Typography>
+      <Typography variant="h2" sx={{ padding: '5px' }}>{column.name}</Typography>
       <Box sx={{ margin: 1 }}>
         <Droppable droppableId={columnId}>
           {(provided, snapshot) => (
@@ -22,10 +23,11 @@ const Column = ({ columnId, column, setColumns }) => {
               {...provided.droppableProps}
               ref={provided.innerRef}
               sx={{
-                background: snapshot.isDraggingOver ? 'lightblue' : 'lightgrey', 
+                background: snapshot.isDraggingOver ? 'lightblue' : '#ebecf0', 
                 padding: 1,
-                width: 250,
+                width:"300px",
                 minHeight: 500,
+                borderRadius:"25px",
               }}
             >
               {column.items.map((item, index) => (

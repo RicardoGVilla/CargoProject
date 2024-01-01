@@ -80,18 +80,18 @@ const KanbanBoard = () => {
       display: 'flex',
       justifyContent: 'center',
       height: '100%',
-      backgroundColor: 'green'
+      // backgroundColor: 'green',
+      mt: "30px",
     }}>
       <DragDropContext onDragEnd={onDragEnd}>
         {Object.entries(columns).map(([columnId, column]) => (
           <Box
             key={columnId}
             sx={{
-              backgroundColor: 'orange', // Column background color
-              margin: 2, // Margin around each column
-              padding: 2, // Padding inside each column
-              borderRadius: 1, // Border radius for rounded corners
-              minWidth: 300, // Minimum width of each column
+              // backgroundColor: `${colors.primary[700]} !important`, 
+              margin: 1, 
+              borderRadius: "10px", 
+              minWidth: 300, 
             }}
           >
             <Column columnId={columnId} column={column} setColumns={setColumns} />

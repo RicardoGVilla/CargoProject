@@ -11,15 +11,21 @@ const Task = ({ item, index }) => {
           {...provided.dragHandleProps}
           style={{
             userSelect: 'none',
-            padding: 16,
+            padding: '10px',
             margin: '0 0 8px 0',
             minHeight: '50px',
-            backgroundColor: snapshot.isDragging ? '#263B4A' : '#456C86',
-            color: 'white',
+            backgroundColor: snapshot.isDragging ? '#ebecf0' : '#ffffff',
+            color: '#17394d',
+            borderRadius: '10px',
+            boxShadow: '0 1px 0 rgba(9,30,66,.25)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
             ...provided.draggableProps.style,
           }}
         >
-          {item.content}
+          <p style={{ margin: '0', fontWeight: 'bold' }}>{item.content}</p>
+          {/* Additional elements like labels or due date can be added here */}
         </div>
       )}
     </Draggable>
