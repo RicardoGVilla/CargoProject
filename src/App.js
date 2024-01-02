@@ -12,15 +12,9 @@ import KanbanBoard from "./scenes/tasks";
 import Data from "./scenes/data";
 import Form from "./components/Form";
 
-// import Contacts from "./scenes/global/contacts";
-// import Calendar from "./scenes/global/calendar";
-// import Tasks from "./scenes/global/tasks";
-// import Form from "./scenes/global/form";
-// import Data from "./scenes/global/tasks";
-
-
 
 function App() {
+  //import theme colors and apply them to the app
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
 
