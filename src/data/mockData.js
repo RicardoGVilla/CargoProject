@@ -1,3 +1,6 @@
+
+
+// Provides data for the dashboard component 
 export const mockDataOrders = [  { id: 1, Order: "5023-123K", productName: "Coffee Beans", supplierName: "Global Grains", accountName: 'IPB', steamshipLine: "Maersk", containerNumber: 'CNU2134567', bookingNumber: 'BK1001', etd: new Date('2023-07-01'), eta: new Date('2023-07-15'), currentStatus: "In Transit", },
 { id: 2, Order: "5023-75K",productName: "Tea Leaves", supplierName: "Herbal Harvest", accountName: 'Portflex', steamshipLine: "COSCO", containerNumber: 'CNU2234557', bookingNumber: 'BK1002', etd: new Date('2023-07-03'), eta: new Date('2023-07-18') , currentStatus: "In Transit",},
 { id: 3, Order: "5023-63K",productName: "Quinoa", supplierName: "Andean Foods", accountName: 'Oceanic', steamshipLine: "MSC", containerNumber: 'CNU2334589', bookingNumber: 'BK1003', etd: new Date('2023-07-05'), eta: new Date('2023-07-20'), currentStatus: "In Transit", },
@@ -11,6 +14,7 @@ export const mockDataOrders = [  { id: 1, Order: "5023-123K", productName: "Coff
 
 
 
+// Provides data for the contact table component 
 export const mockDataContacts = [
   {
     id: 1,

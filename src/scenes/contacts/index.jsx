@@ -37,8 +37,8 @@ const Contacts = () => {
       flex: 1,
     },
     {
-      field: "role", // Add "role" field to the columns
-      headerName: "Role", // Header for the "role" field
+      field: "role", 
+      headerName: "Role", 
       flex: 1,
     },
   ];
