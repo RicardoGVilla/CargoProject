@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography } from "@mui/material";
 import Header from '../../components/Header';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { DataGrid} from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import { monthlyData } from '../../data/mockData';
 
 const containerStyles = {
@@ -21,8 +21,6 @@ const graphContainer = {
 };
 
 export default function Data() {
-  
-
   const columnsFirstGrid = [
     { field: 'orderNumber', headerName: 'Order Number', width: 120 },
     { field: 'product', headerName: 'Product', width: 150 },
@@ -31,11 +29,11 @@ export default function Data() {
   ];
 
   const rowsFirstGrid = [
-    { id: 1, orderNumber: 'ORD001', product: 'Avocado', purchasePrice: 1.99, incoterm: 'FOB' },
-    { id: 2, orderNumber: 'ORD002', product: 'Pineapple', purchasePrice: 2.49, incoterm: 'CIF' },
-    { id: 3, orderNumber: 'ORD003', product: 'Bananas', purchasePrice: 0.99, incoterm: 'DDP' },
-    { id: 4, orderNumber: 'ORD004', product: 'Chocolate', purchasePrice: 3.79, incoterm: 'FOB' },
-    { id: 5, orderNumber: 'ORD005', product: 'Rice', purchasePrice: 1.29, incoterm: 'CIF' },
+    { id: 1, orderNumber: 'ORD001', product: 'Wheat', purchasePrice: 250, incoterm: 'FOB' },
+    { id: 2, orderNumber: 'ORD002', product: 'Corn', purchasePrice: 220, incoterm: 'CIF' },
+    { id: 3, orderNumber: 'ORD003', product: 'Rice', purchasePrice: 280, incoterm: 'DDP' },
+    { id: 4, orderNumber: 'ORD004', product: 'Soybeans', purchasePrice: 300, incoterm: 'FOB' },
+    { id: 5, orderNumber: 'ORD005', product: 'Potatoes', purchasePrice: 150, incoterm: 'CIF' },
   ];
 
   const columnsSecondGrid = [
@@ -46,12 +44,13 @@ export default function Data() {
   ];
 
   const rowsSecondGrid = [
-    { id: 6, orderNumber: 'ORD006', product: 'Coffee Beans', profitPerContainer: 500, dateOfPurchase: '2023-01-10' },
-    { id: 7, orderNumber: 'ORD007', product: 'Olive Oil', profitPerContainer: 800, dateOfPurchase: '2023-02-20' },
-    { id: 8, orderNumber: 'ORD008', product: 'Spices', profitPerContainer: 300, dateOfPurchase: '2023-03-15' },
-    { id: 9, orderNumber: 'ORD009', product: 'Canned Tuna', profitPerContainer: 600, dateOfPurchase: '2023-04-05' },
-    { id: 10, orderNumber: 'ORD010', product: 'Cheese', profitPerContainer: 700, dateOfPurchase: '2023-05-12' },
+    { id: 6, orderNumber: 'ORD006', product: 'Apples', profitPerContainer: 200, dateOfPurchase: '2023-10-10' },
+    { id: 7, orderNumber: 'ORD007', product: 'Oranges', profitPerContainer: 180, dateOfPurchase: '2023-11-20' },
+    { id: 8, orderNumber: 'ORD008', product: 'Grapes', profitPerContainer: 220, dateOfPurchase: '2023-12-15' },
+    { id: 9, orderNumber: 'ORD009', product: 'Tomatoes', profitPerContainer: 190, dateOfPurchase: '2023-12-25' },
+    { id: 10, orderNumber: 'ORD010', product: 'Carrots', profitPerContainer: 170, dateOfPurchase: '2023-12-31' },
   ];
+
 
   return (
     <Box

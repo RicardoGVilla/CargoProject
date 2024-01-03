@@ -32,7 +32,7 @@ function App() {
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/tasks" element={<KanbanBoard />} />
               <Route path="/data" element={<Data />} />           
-            <Route path ="/form" element={<Form />} />        
+              <Route path ="/form" element={<Form />} />        
             </Routes>
           </main>
         </div>
