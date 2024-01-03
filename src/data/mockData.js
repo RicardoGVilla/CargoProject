@@ -12,7 +12,15 @@ export const mockDataOrders = [  { id: 1, Order: "5023-123K", productName: "Coff
 { id: 9, Order: "5023-113K",productName: "Organic Honey", supplierName: "Sweet Fields", accountName: 'Poseidon Waves', steamshipLine: "ZIM", containerNumber: 'CNU2934533', bookingNumber: 'BK1009', etd: new Date('2023-07-20'), eta: new Date('2023-08-03'), currentStatus: "In Transit",},
 { id: 10, Order: "5023-153K",productName: "Wine", supplierName: "Vineyard Vines", accountName: 'Hermes Logistics', steamshipLine: "PIL", containerNumber: 'CNU3034544', bookingNumber: 'BK1010', etd: new Date('2023-07-22'), eta: new Date('2023-08-05'), currentStatus: "In Transit", }]
 
-
+// Define your initial items
+export const itemsFromBackend = [
+  { id: '1', content: 'Review inventory levels of key products' },
+  { id: '2', content: 'Coordinate with suppliers for shipment schedules' },
+  { id: '3', content: 'Update logistics plan for upcoming quarter' },
+  { id: '4', content: 'Assess supplier performance and compliance' },
+  { id: '5', content: 'Plan for demand forecasting meeting' },
+  { id: '6', content: 'Analyze transportation cost reduction strategies' }
+];
 
 // Provides data for the contact table component 
 export const mockDataContacts = [
@@ -154,4 +162,17 @@ export const mockDataContacts = [
 ];
 
 
-
+export const monthlyData = [
+    { month: 'January', expenses: 2000, revenue: 4000 },
+    { month: 'February', expenses: 2500, revenue: 3500 },
+    { month: 'March', expenses: 1800, revenue: 4200 },
+    { month: 'April', expenses: 2200, revenue: 3800 },
+    { month: 'May', expenses: 1900, revenue: 4500 },
+    { month: 'June', expenses: 2100, revenue: 4200 },
+    { month: 'July', expenses: 2300, revenue: 4300 },
+    { month: 'August', expenses: 2400, revenue: 4800 },
+    { month: 'September', expenses: 2000, revenue: 4000 },
+    { month: 'October', expenses: 2500, revenue: 3500 },
+    { month: 'November', expenses: 1800, revenue: 4200 },
+    { month: 'December', expenses: 2200, revenue: 3800 },
+  ];

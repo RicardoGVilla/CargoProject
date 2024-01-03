@@ -1,19 +1,11 @@
 import React, { useState } from 'react';
 import { DragDropContext } from '@hello-pangea/dnd';
 import Column from "../../components/Column"
-import { Box, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
+import { itemsFromBackend } from '../../data/mockData';
 
-// Define your initial items
-const itemsFromBackend = [
-  { id: '1', content: 'Review inventory levels of key products' },
-  { id: '2', content: 'Coordinate with suppliers for shipment schedules' },
-  { id: '3', content: 'Update logistics plan for upcoming quarter' },
-  { id: '4', content: 'Assess supplier performance and compliance' },
-  { id: '5', content: 'Plan for demand forecasting meeting' },
-  { id: '6', content: 'Analyze transportation cost reduction strategies' }
-];
 
-// Initial data for your Kanban board
+// Defining properties for kanban board 
 const initialColumns = {
   requested: {
     name: 'Requested',
@@ -35,8 +27,6 @@ const initialColumns = {
 
 const KanbanBoard = () => {
   const [columns, setColumns] = useState(initialColumns);
-  const theme = useTheme();
-  const colors = theme.palette; 
 
   const onDragEnd = (result) => {
     if (!result.destination) return;
@@ -80,7 +70,6 @@ const KanbanBoard = () => {
       display: 'flex',
       justifyContent: 'center',
       height: '100%',
-      // backgroundColor: 'green',
       mt: "30px",
     }}>
       <DragDropContext onDragEnd={onDragEnd}>
@@ -88,7 +77,6 @@ const KanbanBoard = () => {
           <Box
             key={columnId}
             sx={{
-              // backgroundColor: `${colors.primary[700]} !important`, 
               margin: 1, 
               borderRadius: "10px", 
               minWidth: 300, 

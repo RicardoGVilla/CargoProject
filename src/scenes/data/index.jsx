@@ -2,7 +2,8 @@ import React from 'react';
 import { Box, Typography } from "@mui/material";
 import Header from '../../components/Header';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid} from '@mui/x-data-grid';
+import { monthlyData } from '../../data/mockData';
 
 const containerStyles = {
   padding: '10px',
@@ -20,22 +21,9 @@ const graphContainer = {
 };
 
 export default function Data() {
-  const monthlyData = [
-    { month: 'January', expenses: 2000, revenue: 4000 },
-    { month: 'February', expenses: 2500, revenue: 3500 },
-    { month: 'March', expenses: 1800, revenue: 4200 },
-    { month: 'April', expenses: 2200, revenue: 3800 },
-    { month: 'May', expenses: 1900, revenue: 4500 },
-    { month: 'June', expenses: 2100, revenue: 4200 },
-    { month: 'July', expenses: 2300, revenue: 4300 },
-    { month: 'August', expenses: 2400, revenue: 4800 },
-    { month: 'September', expenses: 2000, revenue: 4000 },
-    { month: 'October', expenses: 2500, revenue: 3500 },
-    { month: 'November', expenses: 1800, revenue: 4200 },
-    { month: 'December', expenses: 2200, revenue: 3800 },
-  ];
+  
 
-  const columnsFirstGrid: GridColDef[] = [
+  const columnsFirstGrid = [
     { field: 'orderNumber', headerName: 'Order Number', width: 120 },
     { field: 'product', headerName: 'Product', width: 150 },
     { field: 'purchasePrice', headerName: 'Purchase Price', width: 130 },
@@ -50,7 +38,7 @@ export default function Data() {
     { id: 5, orderNumber: 'ORD005', product: 'Rice', purchasePrice: 1.29, incoterm: 'CIF' },
   ];
 
-  const columnsSecondGrid: GridColDef[] = [
+  const columnsSecondGrid = [
     { field: 'orderNumber', headerName: 'Order Number', width: 120 },
     { field: 'product', headerName: 'Product', width: 150 },
     { field: 'profitPerContainer', headerName: 'Profit', width: 130 },

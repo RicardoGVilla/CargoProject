@@ -1,12 +1,9 @@
 import React from 'react';
 import { Droppable } from '@hello-pangea/dnd';
-import Task from './Task'; // Assuming Task is in a separate file
-import { Box, Typography, useTheme } from "@mui/material";
+import Task from './Task'; 
+import { Box, Typography} from "@mui/material";
 
-const Column = ({ columnId, column, setColumns }) => {
-  const theme = useTheme();
-  const colors = theme.palette; 
-
+const Column = ({ columnId, column }) => {
   return (
     <Box sx={{
       display: 'flex',
