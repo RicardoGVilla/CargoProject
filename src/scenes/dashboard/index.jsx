@@ -1,10 +1,10 @@
-import * as React from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import Header from '../../components/Header';
 import { mockDataOrders } from '../../data/mockData';
 
-const columns: GridColDef[] = [
+const columns = [
   { field: 'Order', headerName: 'Reference Order', width: 160, editable: true },
   { field: 'accountName', headerName: 'Account Name', width: 150, editable: true },
   { field: 'supplierName', headerName: 'Supplier', width: 150, editable: true },
@@ -15,22 +15,18 @@ const columns: GridColDef[] = [
   {
     field: 'etd',
     headerName: 'ETD',
-    type: 'date',
     width: 150,
     editable: true,
   },
   {
     field: 'eta',
     headerName: 'ETA',
-    type: 'date',
     width: 150,
     editable: true,
     sortable: true,
   },
   { field: 'currentStatus', headerName: 'Status', width: 180, editable: true },
-
 ];
-
 
 export default function DataGridDemo() {
   return (
@@ -40,18 +36,13 @@ export default function DataGridDemo() {
         subtitle="Shipment Status"
       />
       <div style={{ padding: '10px' }}>
-      <DataGrid
-        rows={mockDataOrders}
-        columns={columns}
-        initialState={{
-          sorting: {
-            sortModel: [{ field: 'eta', sort: 'asc' }],
-          },
-        }}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        disableRowSelectionOnClick
-      />
+        <DataGrid
+          rows={mockDataOrders}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+          disableRowSelectionOnClick
+        />
       </div>     
     </Box>
   );
