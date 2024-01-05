@@ -1,0 +1,10 @@
+/* hide scrollbar but allow scrolling */
+.column {
+    -ms-overflow-style: none; /* Internet Explorer, Edge */
+    scrollbar-width: none; /* Firefox */
+    overflow-y: scroll;
+  }
+  
+  .column::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }
