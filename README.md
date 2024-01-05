@@ -2,13 +2,13 @@ Import Export Dashboard
 
 An everyday tool for managing import and export tasks efficiently. This dashboard assist with several features, including:
 
-Shipment Status: Visualize essential information about cargo shipments
+- Shipment Status: Visualize essential information about cargo shipments
 
-Client Contacts: Access to client list  
+- Client Contacts: Access to client list  
 
-Calendar: An integrated calendar
+- Calendar: An integrated calendar
 
-Project Management: A Kanban Board to simplify task management.
+- Project Management: A Kanban Board to simplify task management.
 
 The project leverages a stack of technologies and libraries, including:
 JavaScript
