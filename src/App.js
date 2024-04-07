@@ -14,7 +14,7 @@ import Form from "./components/Form";
 
 
 function App() {
-  //import theme colors and apply them to the app
+  //importing theme colors and applying them to the app
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
 
